@@ -37,6 +37,7 @@ export class ShopPage {
 
   products = [
     {
+      id: 1,
       title: "Red Apple",
       subtitle: "1Kg",
       image: "assets/images/apple.png",
@@ -44,6 +45,7 @@ export class ShopPage {
       inCart: false,
     },
     {
+      id: 2,
       title: "Ranch Eggs",
       subtitle: "12pcs",
       image: "assets/images/eggs.png",
@@ -51,6 +53,7 @@ export class ShopPage {
       inCart: false,
     },
     {
+      id: 3,
       title: "Chicken",
       subtitle: "1Kg",
       image: "assets/images/chicken.png",
@@ -58,34 +61,7 @@ export class ShopPage {
       inCart: false,
     },
     {
-      title: "Waiyu Beef",
-      subtitle: "1Kg",
-      image: "assets/images/meat.png",
-      price: 24.99,
-      inCart: false,
-    },
-    {
-      title: "Red Apple",
-      subtitle: "1Kg",
-      image: "assets/images/apple.png",
-      price: 4.99,
-      inCart: false,
-    },
-    {
-      title: "Ranch Eggs",
-      subtitle: "12pcs",
-      image: "assets/images/eggs.png",
-      price: 0.29,
-      inCart: false,
-    },
-    {
-      title: "Chicken",
-      subtitle: "1Kg",
-      image: "assets/images/chicken.png",
-      price: 1.99,
-      inCart: false,
-    },
-    {
+      id: 4,
       title: "Waiyu Beef",
       subtitle: "1Kg",
       image: "assets/images/meat.png",

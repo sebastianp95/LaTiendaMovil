@@ -7,6 +7,7 @@ export class CartService {
   private cart = {
     products: [
       {
+        id: 1,
         title: "Red Apple",
         subtitle: "1Kg",
         image: "assets/images/apple.png",
@@ -14,6 +15,7 @@ export class CartService {
         quantity: 1,
       },
       {
+        id: 2,
         title: "Ranch Eggs",
         subtitle: "12pcs",
         image: "assets/images/eggs.png",
@@ -21,19 +23,21 @@ export class CartService {
         quantity: 1,
       },
       {
+        id: 3,
         title: "Chicken",
         subtitle: "1Kg",
         image: "assets/images/chicken.png",
         price: 1.99,
         quantity: 1,
       },
-      {
-        title: "Waiyu Beef",
-        subtitle: "1Kg",
-        image: "assets/images/meat.png",
-        price: 24.99,
-        quantity: 1,
-      },
+      // {
+      //   id: 4,
+      //   title: "Waiyu Beef",
+      //   subtitle: "1Kg",
+      //   image: "assets/images/meat.png",
+      //   price: 24.99,
+      //   quantity: 1,
+      // },
     ],
     subtotal: 244,
     taxRate: 12,
@@ -54,7 +58,18 @@ export class CartService {
   }
 
   addItem(item) {
-    this.cart.products.push(item);
+    let inCart = false;
+    this.cart.products.forEach((element) => {
+      if (item.id === element.id) {
+        element.quantity = element.quantity + 1;
+        inCart = true;
+      }
+    });
+
+    if (!inCart) {
+      item.quantity = 1;
+      this.cart.products.push(item);
+    }
     console.log(this.getAllProducts());
   }
 }
