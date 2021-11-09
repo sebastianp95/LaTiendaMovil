@@ -1,0 +1,72 @@
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col class="ion-padding">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
+          />
+        </ion-avatar>
+        <ion-label class="ion-no-margin">
+          <p>Tina Marina</p>
+          <span>iamtina.marina@gmail.com</span>
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-no-padding">
+    <ion-list>
+      <ion-item
+        detail
+        lines="none"
+        *ngFor="let item of menu"
+        class="ion-padding-horizontal"
+        (click)="navigate(item.route)"
+      >
+        <ion-icon size="medium" slot="start" [name]="item.icon"></ion-icon>
+        <ion-label>
+          <p>{{ item.title }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-padding">
+      <ion-button
+        (click)="signOut()"
+        class="action-button"
+        expand="block"
+        fill="solid"
+        color="light"
+        type="button"
+      >
+        <div class="button-text">
+          <span>Sign Out</span>
+          <ion-icon name="log-out-outline"></ion-icon>
+        </div>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<!-- <ion-list>
+        <ion-menu-toggle menu="m1">
+          <ion-item lines="none" routerLink="/places/discover">
+            <ion-icon name="business" slot="start"> </ion-icon>
+            <ion-label>Discover Places</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="m1">
+
+          <ion-item lines="none" routerLink="/bookings">
+            <ion-icon name="checkbox-outline" slot="start"> </ion-icon>
+            <ion-label>Your Bookings</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="m1">
+
+          <ion-item lines="none" (click)="onLogout()" button>
+            <ion-icon name="exit" slot="start"> </ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list> -->

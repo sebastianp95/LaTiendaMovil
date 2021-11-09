@@ -1,0 +1,123 @@
+<ion-content [fullscreen]="true">
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-no-padding green">
+      <ion-header class="ion-no-border">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/shop"></ion-back-button>
+          </ion-buttons>
+          <ion-title></ion-title>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon
+                color="dark"
+                slot="icon-only"
+                name="share-social-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-slides [pager]="true" [options]="imageConfig">
+        <ion-slide *ngFor="let item of [1,1,1]">
+          <ion-col class="ion-padding ion-margin-bottom">
+            <img src="{{ product?.image }}" />
+          </ion-col>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col size="12" class="ion-no-padding">
+        <div class="title-container">
+          <div class="text-container">
+            <p>{{ product?.title }}</p>
+            <span>{{ product?.subtitle }}</span>
+          </div>
+          <ion-button
+            (click)="favorite()"
+            class="circle-btn"
+            slot="end"
+            fill="clear"
+            size="small"
+            shape="round"
+            color="primary"
+          >
+            <ion-icon slot="icon-only" [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <div class="buttons-container">
+          <ul>
+            <li>
+              <ion-button
+                class="ion-no-padding"
+                [disabled]="disable"
+                fill="clear"
+                size="small"
+                shape="round"
+                color="primary"
+                (click)="decrease(product)"
+              >
+                <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+              </ion-button>
+            </li>
+            <li>{{ product?.quantity }}</li>
+            <li>
+              <ion-button
+                class="ion-no-padding"
+                fill="clear"
+                size="small"
+                shape="round"
+                color="primary"
+                (click)="increase(product)"
+              >
+                <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+              </ion-button>
+            </li>
+          </ul>
+          <ion-text>{{ product?.price | currency }}</ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col class="ion-no-padding">
+        <app-dropdown [open]="true" [title]="'Product Detail'">
+          <p class="text">
+            Apples are a good source of fiber and vitamin C. They also contain
+            polyphenols, which may have numerous health benefits.
+          </p>
+        </app-dropdown>
+        <app-dropdown [open]="false" [title]="'Nutrition'">
+          <p class="text">
+            Apples are a good source of fiber and vitamin C. They also contain
+            polyphenols, which may have numerous health benefits.
+          </p>
+        </app-dropdown>
+        <app-dropdown [open]="false" [title]="'Reviews'">
+          <p class="text">
+            Apples are a good source of fiber and vitamin C. They also contain
+            polyphenols, which may have numerous health benefits.
+          </p>
+        </app-dropdown>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="ion-padding-horizontal ion-no-border">
+  <ion-toolbar>
+    <ion-button
+      class="action-button"
+      expand="block"
+      fill="solid"
+      color="primary"
+      type="button"
+    >
+      <div class="button-text">
+        <span>Add to Cart</span>
+        <ion-icon name="cart-outline"></ion-icon>
+      </div>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
