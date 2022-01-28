@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectorRef, Component, OnChanges } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { ModalAcceptedPage } from "../modal-accepted/modal-accepted.page";
 import { CartService } from "./cart.service";
@@ -8,13 +8,20 @@ import { CartService } from "./cart.service";
   templateUrl: "cart.page.html",
   styleUrls: ["cart.page.scss"],
 })
-export class CartPage {
+export class CartPage implements OnChanges {
   cart;
   constructor(
     private modalCtrl: ModalController,
     private cartService: CartService
   ) {}
 
+  ngOnChanges() {
+    this.cart = {
+      products: this.cartService.getAllProducts(),
+      subtotal: this.cartService.getSubtotal(),
+      taxRate: this.cartService.getTaxRate(),
+    };
+  }
   ngOnInit() {
     this.cart = {
       products: this.cartService.getAllProducts(),

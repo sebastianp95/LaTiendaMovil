@@ -70,6 +70,20 @@ export class CartService {
       item.quantity = 1;
       this.cart.products.push(item);
     }
-    console.log(this.getAllProducts());
+  }
+
+  removeItem(item) {
+    let index;
+
+    this.cart.products.forEach((element) => {
+      if (item.id === element.id) {
+        index = this.cart.products.indexOf(element);
+        console.log("index of", this.cart.products.indexOf(element));
+      }
+    });
+    if (index > -1) {
+      this.cart.products.splice(index, 1);
+      this.cart.products = [...this.cart.products];
+    }
   }
 }
